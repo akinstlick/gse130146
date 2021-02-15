@@ -1,0 +1,19 @@
+
+AJ@DESKTOP-4SAGE97  ~/Documents
+$
+library(Matrix)
+matrix_dir = "C:\Users\AJ\Documents\"
+barcode.path <- paste0(matrix_dir, "GSM3732839_EB_barcodes.tsv.gz")
+features.path <- paste0(matrix_dir, "GSM3732839_EB_features.tsv.gz")
+matrix.path <- paste0(matrix_dir, "GSM3732839_EB_matrix.mtx.gz")
+mat <- readMM(file = matrix.path)
+feature.names = read.delim(features.path, 
+                           header = FALSE,
+                           stringsAsFactors = FALSE)
+barcode.names = read.delim(barcode.path, 
+                           header = FALSE,
+                           stringsAsFactors = FALSE)
+colnames(mat) = barcode.names$V1
+rownames(mat) = feature.names$V1
+$
+
